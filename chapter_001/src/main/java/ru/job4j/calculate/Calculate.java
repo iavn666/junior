@@ -7,8 +7,8 @@ package ru.job4j.calculate;
 */
 public class Calculate {
 /**
-* Метод мэйн
-* @param String[] args
+* Main.   
+* @param args - args.
 */
   public static void main(String[] args) {
   System.out.println("Hello World");
