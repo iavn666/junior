@@ -1,3 +1,3 @@
-# Репазиторий Двоеглазова Ивана
+п»ї# repositories Ivan Doeglazov
 http://job4j.ru/
-Цель: Закончить курс
+mission: complete the course
