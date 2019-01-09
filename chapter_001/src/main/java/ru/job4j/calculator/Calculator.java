@@ -10,36 +10,36 @@ public class Calculator {
     private double result;
 
     /**
-     * РЎР»РѕР¶РµРЅРёРµ
-     * @param first РїРµСЂРІС‹Р№ Р°СЂРіСѓРјРµРЅС‚
-     * @param second РІС‚РѕСЂРѕР№ Р°СЂРіСѓРјРµРЅС‚
+     * Сложение
+     * @param first первый аргумент
+     * @param second второй аргумент
     */
 
     public void add(double first, double second) {
         this.result = first + second;
     }
     /**
-     * Р’С‹С‡РёС‚Р°РЅРµРµ
-     * @param first РїРµСЂРІС‹Р№ Р°СЂРіСѓРјРµРЅС‚
-     * @param second РІС‚РѕСЂРѕР№ Р°СЂРіСѓРјРµРЅС‚
+     * Вычитанее
+     * @param first первый аргумент
+     * @param second второй аргумент
      */
 
     public void sub(double first, double second) {
         this.result = first - second;
     }
     /**
-     * РЈРјРЅРѕР¶РµРЅРёРµ
-     * @param first РїРµСЂРІС‹Р№ Р°СЂРіСѓРјРµРЅС‚
-     * @param second РІС‚РѕСЂРѕР№ Р°СЂРіСѓРјРµРЅС‚
+     * Умножение
+     * @param first первый аргумент
+     * @param second второй аргумент
      */
 
     public void mul(double first, double second) {
         this.result = first * second;
     }
     /**
-     * Р”РµР»РµРЅРёРµ
-     * @param first РїРµСЂРІС‹Р№ Р°СЂРіСѓРјРµРЅС‚
-     * @param second РІС‚РѕСЂРѕР№ Р°СЂРіСѓРјРµРЅС‚
+     * Деление
+     * @param first первый аргумент
+     * @param second второй аргумент
      */
 
     public void div(double first, double second) {
