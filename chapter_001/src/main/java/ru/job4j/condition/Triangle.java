@@ -42,8 +42,7 @@ public class Triangle {
      */
 
     private boolean exist(double ab, double ac, double bc) {
-        boolean rsl = (ab == ac);
-        return rsl;
+        return ((ab + ac) > bc) ? true : false;
     }
     /**
      * Метод должен вычислить площадь треугольника.
