@@ -22,7 +22,7 @@ import static org.junit.Assert.assertThat;
           @Test
           public void whenFirstLessSecondLessThird() {
               Max m = new Max();
-              int result = m.max(1,2,5);
+              int result = m.max(1, 2, 5);
               assertThat(result, is(5));
           }
 
