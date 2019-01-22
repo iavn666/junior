@@ -15,7 +15,7 @@ public class Factorial {
     public int calc(int n) {
         int c = 1;
         for (int a = 1; a <= n; a++) {
-            if (a >= 1) {
+            if (a <= 5) {
                 c = a * c;
             }
 
