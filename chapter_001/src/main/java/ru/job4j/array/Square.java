@@ -7,13 +7,8 @@ package ru.job4j.array;
 public class Square {
     public int[] calculate(int bound) {
         int[] rst = new int[bound];
-        rst[0] = 1;
-        rst[1] = 2;
-        rst[2] = 3;
-        rst[3] = 4;
-    for (int index = 0; index != rst.length; index++) {
-           rst[index] *= rst[index];
-
+         for (int index = 0; index != rst.length; index++) {
+         rst[index] = (index + 1) * (index + 1);
     }
         return rst;
     }
