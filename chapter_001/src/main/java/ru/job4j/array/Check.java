@@ -5,15 +5,14 @@ public class Check {
         boolean result = false;
         int a = 0;
         for (int index = 0; index < data.length; index++) {
-            if (data[index] == false) {
-                a++;
-               }
+            if (data[0] == data[index]) {
+               result = true;
+               } else {
+                result = false;
+                break;
             }
-        if (a > 0){
-            result = false;
-        } else {
-            result = true;
-        }
+            }
         return result;
-    }
+        }
+
 }
