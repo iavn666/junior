@@ -10,9 +10,9 @@ public class BubbleSortTest {
     @Test
     public void whenStartWithPrefixThenTrue() {
         BubbleSort word = new BubbleSort();
-        int [] arrya =  {5, 1, 2, 7, 3};
-        int [] rst = word.sort(arrya);
-        int [] expe = {1, 2, 3, 5, 7};
+        int[] arrya =  {5, 1, 2, 7, 3};
+        int[] rst = word.sort(arrya);
+        int[] expe = {1, 2, 3, 5, 7};
         assertThat(rst, is(expe));
 }
 

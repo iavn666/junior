@@ -1,0 +1,36 @@
+package ru.job4j.array;
+/**
+ * @author ivan Dvoeglazov (ivan.vanya.2012@inbox.ru)
+ * @version 1
+ * @since 11.02.2019
+ */
+
+import org.junit.Test;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+
+public class MatrixCheckTest {
+    @Test
+    public void whenDataMonoByTrueThenTrue() {
+        MatrixCheck check = new MatrixCheck();
+        boolean[][] input = new boolean[][] {
+                {true, true, true},
+                {false, true, true},
+                {true, false, true}
+        };
+        boolean result = check.mono(input);
+        assertThat(result, is(true));
+    }
+
+    @Test
+    public void whenDataNotMonoByTrueThenFalse() {
+        MatrixCheck check = new MatrixCheck();
+        boolean[][] input = new boolean[][] {
+                {true, true, false},
+                {false, false, true},
+                {true, false, true}
+        };
+        boolean result = check.mono(input);
+        assertThat(result, is(false));
+    }
+}
