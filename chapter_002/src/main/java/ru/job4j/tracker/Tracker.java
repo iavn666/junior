@@ -1,5 +1,6 @@
 package ru.job4j.tracker;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -32,7 +33,7 @@ public class Tracker {
 
     public boolean replace(String id, Item item) {
         boolean result = false;
-        for (int index = 0; index <= items.length; index++) {
+        for (int index = 0; index !=this.position; index++) {
             if (items[index].getId().equals(id)) {
                 item.setId(id);
                 items[index] = item;
@@ -45,11 +46,10 @@ public class Tracker {
 
     public boolean delete(String id) {
         boolean result = false;
-        for (int index = 0; index <= items.length; index++) {
+        for (int index = 0; index !=this.position; index++) {
             if (items[index].getId().equals(id)) {
                 items[index] = null;
-                items[position] = items[items.length-1];
-                System.arraycopy(items, position, items, position++, items.length -1);
+                System.arraycopy(items, index , items, position++, items.length -1);
                 result = true;
                 break;
             }
@@ -58,13 +58,7 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        Item[] result = new Item[this.position];
-        for (int index = 0; index !=this.position; index++) {
-            if (items[index] != null) {
-                result[index] = items[index];
-               }
-        }
-        return result;
+       return Arrays.copyOf(items, position);
     }
 
 
@@ -73,7 +67,7 @@ public class Tracker {
         for (int index = 0;index !=position; index++) {
             if (items[index].getName().equals(key));
             result[index] = items[index];
-        }
+          }
         return result;
     }
 
@@ -83,6 +77,7 @@ public class Tracker {
             if (m.getId().equals(id)) {
             finded = m;
             }
+            break;
         }
         return finded;
        }
