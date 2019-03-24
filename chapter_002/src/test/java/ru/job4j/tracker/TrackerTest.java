@@ -16,6 +16,16 @@ public class TrackerTest {
     }
 
     @Test
+    public void TrackerNullItem() {
+        Tracker tracker = new Tracker();
+        long created = System.currentTimeMillis();
+        Item item = new Item(null, null,created);
+        tracker.add(item);
+        Item result = tracker.findById(item.getId());
+        assertThat(result.getName(), is(item.getName()));
+    }
+
+    @Test
     public void whenReplaceNameThenReturnNewName() {
         Tracker tracker = new Tracker();
         Item previous = new Item("test1","testDescription",123L);

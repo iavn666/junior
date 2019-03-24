@@ -15,7 +15,6 @@ public class Tracker {
     private static final Random RN = new Random();
 
 
-
     /**
      * Указатель ячейки для новой заявки.
      */
@@ -23,6 +22,7 @@ public class Tracker {
 
     /**
      * Метод реализаущий добавление заявки в хранилище
+     *
      * @param item новая заявка
      */
     public Item add(Item item) {
@@ -33,7 +33,7 @@ public class Tracker {
 
     public boolean replace(String id, Item item) {
         boolean result = false;
-        for (int index = 0; index !=this.position; index++) {
+        for (int index = 0; index != this.position; index++) {
             if (items[index].getId().equals(id)) {
                 item.setId(id);
                 items[index] = item;
@@ -46,45 +46,46 @@ public class Tracker {
 
     public boolean delete(String id) {
         boolean result = false;
-        for (int index = 0; index !=this.position; index++) {
+        Item[] arrey = new Item[99];
+        for (int index = 0; index != this.position; index++) {
             if (items[index].getId().equals(id)) {
                 items[index] = null;
-                System.arraycopy(items, index , items, position++, items.length -1);
+                System.arraycopy(items, index++, arrey , 0, items.length - 1);
                 result = true;
                 break;
             }
-          }
+        }
         return result;
     }
 
     public Item[] findAll() {
-       return Arrays.copyOf(items, position);
+        return Arrays.copyOf(items, position);
     }
 
 
     public Item[] findByName(String key) {
         Item[] result = new Item[this.position];
-        for (int index = 0;index !=position; index++) {
-            if (items[index].getName().equals(key));
+        for (int index = 0; index != position; index++) {
+            if (items[index].getName().equals(key)) ;
             result[index] = items[index];
-          }
+            System.arraycopy(items, index, result, 0,1);
+        }
         return result;
     }
 
     public Item findById(String id) {
         Item finded = null;
-        for (Item m : items) {
-            if (m.getId().equals(id)) {
-            finded = m;
+        for (int m = 0; m != position; m++) {
+            if (items[m].getId().equals(id)) {
+                finded = items[m];
             }
-            break;
         }
         return finded;
-       }
-
-
-
-    private String generateId() {
-        return String.valueOf(System.currentTimeMillis() + RN.nextInt());
     }
+
+
+        private String generateId () {
+            return String.valueOf(System.currentTimeMillis() + RN.nextInt());
+        }
+
 }
