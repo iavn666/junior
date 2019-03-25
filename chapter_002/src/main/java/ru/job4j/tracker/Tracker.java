@@ -50,7 +50,7 @@ public class Tracker {
         for (int index = 0; index != this.position; index++) {
             if (items[index].getId().equals(id)) {
                 items[index] = null;
-                System.arraycopy(items, index++, arrey , 0, items.length - 1);
+                System.arraycopy(items, index, arrey , 0, items.length - 1);
                 result = true;
                 break;
             }
@@ -68,9 +68,8 @@ public class Tracker {
         for (int index = 0; index != position; index++) {
             if (items[index].getName().equals(key)) ;
             result[index] = items[index];
-            System.arraycopy(items, index, result, 0,1);
         }
-        return result;
+        return Arrays.copyOf(result,1);
     }
 
     public Item findById(String id) {
