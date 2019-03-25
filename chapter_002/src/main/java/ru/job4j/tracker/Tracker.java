@@ -50,7 +50,7 @@ public class Tracker {
         for (int index = 0; index != this.position; index++) {
             if (items[index].getId().equals(id)) {
                 items[index] = null;
-                System.arraycopy(items, index + 1, arrey , 1, items.length - 1);
+                System.arraycopy(items, index + 1, arrey , index, 1);
                 result = true;
                 break;
             }
