@@ -69,7 +69,7 @@ public class Tracker {
             if (items[index].getName().equals(key));
             result[index] = items[index];
         }
-        return Arrays.copyOf(result, 1);
+        return Arrays.copyOf(result, position);
     }
 
     public Item findById(String id) {
