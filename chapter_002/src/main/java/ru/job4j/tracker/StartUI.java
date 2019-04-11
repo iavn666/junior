@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.Arrays;
+
 /**
  * @version $Id$
  * @since 0.1
@@ -57,8 +59,7 @@ public class StartUI {
 
     private void showallitems() {
         System.out.println("------------ Показать все заявки --------------");
-        this.tracker.findAll();
-        //System.out.println("---------------- Результат : " +  + " ---------------------");
+        System.out.println("------------ Результат : " + Arrays.toString(this.tracker.findAll()) + "------------");
     }
 
 
@@ -72,7 +73,7 @@ public class StartUI {
     private void finditemname() {
         System.out.println("------------ Поиск заявки по имени --------------");
         String name = this.input.ask("Введите имя заявки :");
-        System.out.println("------------ Результат : " + this.tracker.findByName(name) + " --------------");
+        System.out.println("---- Результат : " + Arrays.toString(this.tracker.findByName(name)) + " ---------");
 
     }
 
@@ -96,7 +97,8 @@ public class StartUI {
     private void edititem() {
         System.out.println("------------ Редактирование заявки --------------");
         String id = this.input.ask("Введите id заявки :");
-        Item item = new Item("home", "perm",2);
+        String desc = this.input.ask("Введите описание заявки :");
+        Item item = new Item("home", desc,2);
         System.out.println("------------ Результат: " + this.tracker.replace(id, item) + " --------------");
     }
 

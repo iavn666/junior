@@ -46,23 +46,7 @@ public class Item {
         this.time = time;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-                      Item item = (Item) o;
-                return time == item.time &&
-                        Objects.equals(id, item.id) &&
-                        Objects.equals(name, item.name) &&
-                        Objects.equals(decs, item.decs);
 
-
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, decs, time);
-    }
 
     @Override
     public String toString() {
@@ -72,5 +56,20 @@ public class Item {
                 ", decs='" + decs + '\'' +
                 ", time=" + time +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return time == item.time &&
+                name.equals(item.name) &&
+                decs.equals(item.decs);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, decs, time);
     }
 }
