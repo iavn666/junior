@@ -25,7 +25,7 @@ public class Tracker {
      *
      * @param item новая заявка
      */
-    public Item add(Item item) {
+    public Item add(Item item) { // брейкпоинт
         item.setId(this.generateId());
         this.items[this.position++] = item;
         return item;
@@ -62,14 +62,20 @@ public class Tracker {
         return Arrays.copyOf(items, position);
     }
 
-
+    /**
+     * Метод поиска заявок по имени
+     * @param key - Искомые значения
+     * @return Массив полученных значений
+     */
     public Item[] findByName(String key) {
         Item[] result = new Item[this.position];
+        int a = position;
         for (int index = 0; index != position; index++) {
             if (items[index].getName().equals(key));
             result[index] = items[index];
+            a++;
         }
-        return Arrays.copyOf(result, position);
+        return Arrays.copyOf(result, a);
     }
 
     public Item findById(String id) {
@@ -77,6 +83,7 @@ public class Tracker {
         for (int m = 0; m != position; m++) {
             if (items[m].getId().equals(id)) {
                 finded = items[m];
+                break;
             }
         }
         return finded;
@@ -87,4 +94,23 @@ public class Tracker {
             return String.valueOf(System.currentTimeMillis() + RN.nextInt());
         }
 
+    /**
+     * для демонстрации
+     * @param args
+     */
+    public static void main(String[] args) {
+        Tracker tracker = new Tracker(); //создали обьект трекера с методами
+        Item item = new Item("Баг","Это тест",2); // тут все ясно
+        Item item2 = new Item("Баг","Это тест",2);
+        Item item3 = new Item("Баг","Это тест",2);
+        Item item4 = new Item("Чтото","Это тест",2);
+        tracker.add(item); // тут будем дебажит , вернее проверим работу метода add
+        tracker.add(item2);
+        tracker.add(item3);
+        tracker.add(item4);
+        System.out.println(tracker.position);
+
+
+    }
+   
 }
