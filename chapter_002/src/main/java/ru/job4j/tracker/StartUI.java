@@ -59,6 +59,15 @@ public class StartUI {
 
     private void showallitems() {
         System.out.println("------------ Показать все заявки --------------");
+        final Item[] all = this.tracker.findAll();
+        if (all.length > 0) {
+            for (Item item : all) {
+                System.out.println(item);
+            }
+        } else {
+            System.out.println("Tracker is empty");
+        }
+
         System.out.println("------------ Результат : " + Arrays.toString(this.tracker.findAll()) + "------------");
     }
 
@@ -66,7 +75,12 @@ public class StartUI {
     private void deliteitem() {
         System.out.println("------------ Удаление заявок --------------");
         String id = this.input.ask("Введите id заявки :");
-        System.out.println("------------ Результат: " + this.tracker.delete(id) + " --------------");
+        if (this.tracker.delete(id)) {
+            System.out.println(String.format("Item with id : $s was delete", id));
+        } else {
+            System.out.println("Item not found");
+        }
+
 
     }
 
