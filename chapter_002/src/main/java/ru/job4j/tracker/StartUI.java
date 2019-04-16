@@ -90,7 +90,7 @@ public class StartUI {
         Item[] all = this.tracker.findByName(name);
         if (all.length > 0) {
         for (Item item : all) {
-             System.out.println("Результат : " + item );
+             System.out.println("Результат : " + item);
              }
         }  else {
             System.out.println("NO ITEM");
@@ -114,7 +114,7 @@ public class StartUI {
         System.out.println("------------ Добавление новой заявки --------------");
         String name = this.input.ask("Введите имя заявки :");
         String desc = this.input.ask("Введите описание заявки :");
-        Item item = new Item(name, desc,1);
+        Item item = new Item(name, desc, 1);
         this.tracker.add(item);
         System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
     }
@@ -124,8 +124,8 @@ public class StartUI {
         String id = this.input.ask("Введите id заявки :");
         String desc = this.input.ask("Введите описание заявки :");
         //String name = this.input.ask("Введите имя заявки");
-        Item item = new Item("ert", desc,1);
-        if(this.tracker.replace(id,item)) {
+        Item item = new Item("ert", desc, 1);
+        if (this.tracker.replace(id, item)) {
         System.out.println("Результат : true");
         } else {
         System.out.println("Результат : false");

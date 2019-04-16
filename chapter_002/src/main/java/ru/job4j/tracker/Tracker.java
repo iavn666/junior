@@ -76,7 +76,7 @@ public class Tracker {
                 a++;
             }
         }
-        return Arrays.copyOf(result, a );
+        return Arrays.copyOf(result, a);
     }
 
     public Item findById(String id) {
