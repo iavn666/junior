@@ -87,14 +87,25 @@ public class StartUI {
     private void finditemname() {
         System.out.println("------------ Поиск заявки по имени --------------");
         String name = this.input.ask("Введите имя заявки :");
-        System.out.println("---- Результат : " + Arrays.toString(this.tracker.findByName(name)) + " ---------");
-
+        Item[] all = this.tracker.findByName(name);
+        if (all.length > 0) {
+        for (Item item : all) {
+             System.out.println("Результат : " + item );
+             }
+        }  else {
+            System.out.println("NO ITEM");
+           }
     }
 
     private void findid() {
         System.out.println("------------ Поиск заявки --------------");
         String id = this.input.ask("Введите id заявки :");
-        System.out.println("------------ Результат поиска : " + this.tracker.findById(id)  + "-----------");
+        Item items = this.tracker.findById(id);
+        if (items != null) {
+        System.out.println("------------ Результат поиска : " + items + "-----------");
+        } else {
+            System.out.println("------------ Результат поиска : null -----------");
+        }
     }
     /**
      * Метод реализует добавленяи новый заявки в хранилище.
@@ -112,8 +123,13 @@ public class StartUI {
         System.out.println("------------ Редактирование заявки --------------");
         String id = this.input.ask("Введите id заявки :");
         String desc = this.input.ask("Введите описание заявки :");
-        Item item = new Item("home", desc,2);
-        System.out.println("------------ Результат: " + this.tracker.replace(id, item) + " --------------");
+        //String name = this.input.ask("Введите имя заявки");
+        Item item = new Item("ert", desc,1);
+        if(this.tracker.replace(id,item)) {
+        System.out.println("Результат : true");
+        } else {
+        System.out.println("Результат : false");
+        }
     }
 
     private void showMenu() {
