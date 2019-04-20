@@ -32,6 +32,7 @@ public class StartUI {
     public StartUI(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
+
     }
 
     public void init() {
