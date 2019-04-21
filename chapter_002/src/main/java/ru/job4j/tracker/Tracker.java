@@ -46,11 +46,10 @@ public class Tracker {
 
     public boolean delete(String id) {
         boolean result = false;
-        Item[] arrey = new Item[99];
         for (int index = 0; index != this.position; index++) {
             if (items[index].getId().equals(id)) {
-                items[index] = null;
-                System.arraycopy(items, index + 1, arrey, index, items.length - 1 - index);
+                items[position--] = null;
+                System.arraycopy(items, index + 1, items, index, items.length - 1 - index);
                 result = true;
                 break;
             }

@@ -1,6 +1,8 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+
+import static org.hamcrest.collection.IsIterableContainingInOrder.contains;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.assertThat;
@@ -22,6 +24,24 @@ public class StartUITest {
         Input input = new StubInput(new String[]{"3", item.getId(), "6"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
         assertThat(tracker.findById(item.getId()), is(nullValue()));
+    }
+
+    @Test
+    public void whenUserFindItemThenTrackerHasNewItemWithSameName() {
+        Tracker tracker = new Tracker();// создаём Tracker
+        Item item = tracker.add(new Item("test name", "desc", 1));
+        Input input = new StubInput(new String[]{"4", item.getId(), "6"});   //создаём StubInput с последовательностью действий
+        new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
+        assertThat(tracker.findById(item.getId()), is(item));
+    }
+
+    @Test
+    public void whenUserFindItembyName() {
+        Tracker tracker = new Tracker();// создаём Tracker
+        Item item = tracker.add(new Item("test name", "desc", 1));
+        Input input = new StubInput(new String[]{"5", item.getName(), "6"});
+        new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
+        assertThat(tracker.findByName(item.getName()),is(item));
     }
 
 
