@@ -41,7 +41,7 @@ public class StartUITest {
         Item item = tracker.add(new Item("test name", "desc", 1));
         Input input = new StubInput(new String[]{"5", item.getName(), "6"});
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
-        assertThat(tracker.findByName(item.getName()),is(item));
+        assertThat(tracker.findByName(item.getName()),is(new Item[]{item}));
     }
 
 
