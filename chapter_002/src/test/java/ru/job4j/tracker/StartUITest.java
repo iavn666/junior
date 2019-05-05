@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.Scanner;
 
 import static org.hamcrest.collection.IsIterableContainingInOrder.contains;
 import static org.hamcrest.core.Is.is;
@@ -32,14 +34,35 @@ public class StartUITest {
     }
 
     @Test
-    public void allItem() {
+    public void allItemRefa() {
         Tracker tracker = new Tracker();     // создаём Tracker
         Item item = tracker.add(new Item("test name", "desc", 1));
         Input input = new StubInput(new String[]{"1", "6"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
-        assertThat(tracker.findAll(), is(new Item[]{item})); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
-    }
+        assertThat(this.out.toString(), is(new StringBuilder()
+                .append("Меню.\r\n")
+                .append("0. Add new Item\r\n")
+                .append("1. Show all items\r\n")
+                .append("2. Edit item\r\n")
+                .append("3. Delete item\r\n")
+                .append("4. Find item by Id\r\n")
+                .append("5. Find items by name\r\n")
+                .append("6. Exit Program\r\n")
+                .append("------------ Показать все заявки --------------\r\n")
+                .append(item + "\r\n")
+                .append("------------ Результат : " + Arrays.toString(new Item[]{item}) + "------------\r\n")
+                .append("Меню.\r\n")
+                .append("0. Add new Item\r\n")
+                .append("1. Show all items\r\n")
+                .append("2. Edit item\r\n")
+                .append("3. Delete item\r\n")
+                .append("4. Find item by Id\r\n")
+                .append("5. Find items by name\r\n")
+                .append("6. Exit Program\r\n")
+                .toString()
+        ));
 
+    }
 
 
     @Test
@@ -47,7 +70,27 @@ public class StartUITest {
         Tracker tracker = new Tracker();     // создаём Tracker
         Input input = new StubInput(new String[]{"0", "test name", "desc", "6"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
-        assertThat(tracker.findAll()[0].getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
+        assertThat(this.out.toString(), is(new StringBuilder()
+                .append("Меню.\r\n")
+                .append("0. Add new Item\r\n")
+                .append("1. Show all items\r\n")
+                .append("2. Edit item\r\n")
+                .append("3. Delete item\r\n")
+                .append("4. Find item by Id\r\n")
+                .append("5. Find items by name\r\n")
+                .append("6. Exit Program\r\n")
+                .append("------------ Добавление новой заявки --------------\r\n")
+                .append("------------ Новая заявка с getId : " + tracker.findAll()[0].getId() + "-----------\r\n")
+                .append("Меню.\r\n")
+                .append("0. Add new Item\r\n")
+                .append("1. Show all items\r\n")
+                .append("2. Edit item\r\n")
+                .append("3. Delete item\r\n")
+                .append("4. Find item by Id\r\n")
+                .append("5. Find items by name\r\n")
+                .append("6. Exit Program\r\n")
+                .toString()
+        ));
     }
 
     @Test
@@ -56,7 +99,27 @@ public class StartUITest {
         Item item = tracker.add(new Item("test name", "desc", 1));
         Input input = new StubInput(new String[]{"3", item.getId(), "6"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
-        assertThat(tracker.findById(item.getId()), is(nullValue()));
+        assertThat(this.out.toString(), is(new StringBuilder()
+                .append("Меню.\r\n")
+                .append("0. Add new Item\r\n")
+                .append("1. Show all items\r\n")
+                .append("2. Edit item\r\n")
+                .append("3. Delete item\r\n")
+                .append("4. Find item by Id\r\n")
+                .append("5. Find items by name\r\n")
+                .append("6. Exit Program\r\n")
+                .append("------------ Удаление заявок --------------\r\n")
+                .append("Item with id : " + "$s was delete" + "\r\n")
+                .append("Меню.\r\n")
+                .append("0. Add new Item\r\n")
+                .append("1. Show all items\r\n")
+                .append("2. Edit item\r\n")
+                .append("3. Delete item\r\n")
+                .append("4. Find item by Id\r\n")
+                .append("5. Find items by name\r\n")
+                .append("6. Exit Program\r\n")
+                .toString()
+        ));
     }
 
     @Test
@@ -65,16 +128,57 @@ public class StartUITest {
         Item item = tracker.add(new Item("test name", "desc", 1));
         Input input = new StubInput(new String[]{"4", item.getId(), "6"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
-        assertThat(tracker.findById(item.getId()), is(item));
+        assertThat(this.out.toString(), is(new StringBuilder()
+                .append("Меню.\r\n")
+                .append("0. Add new Item\r\n")
+                .append("1. Show all items\r\n")
+                .append("2. Edit item\r\n")
+                .append("3. Delete item\r\n")
+                .append("4. Find item by Id\r\n")
+                .append("5. Find items by name\r\n")
+                .append("6. Exit Program\r\n")
+                .append("------------ Поиск заявки --------------\r\n")
+                .append("------------ Результат поиска : " + tracker.findById(item.getId()) + "-----------\r\n")
+                .append("Меню.\r\n")
+                .append("0. Add new Item\r\n")
+                .append("1. Show all items\r\n")
+                .append("2. Edit item\r\n")
+                .append("3. Delete item\r\n")
+                .append("4. Find item by Id\r\n")
+                .append("5. Find items by name\r\n")
+                .append("6. Exit Program\r\n")
+                .toString()
+        ));
     }
-
+//tracker.findByName(item.getName()
+    //new Item[]{item})
     @Test
     public void whenUserFindItembyName() {
         Tracker tracker = new Tracker();// создаём Tracker
         Item item = tracker.add(new Item("test name", "desc", 1));
         Input input = new StubInput(new String[]{"5", item.getName(), "6"});
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
-        assertThat(tracker.findByName(item.getName()),is(new Item[]{item}));
+        assertThat(this.out.toString(),is(new StringBuilder()
+                .append("Меню.\r\n")
+                .append("0. Add new Item\r\n")
+                .append("1. Show all items\r\n")
+                .append("2. Edit item\r\n")
+                .append("3. Delete item\r\n")
+                .append("4. Find item by Id\r\n")
+                .append("5. Find items by name\r\n")
+                .append("6. Exit Program\r\n")
+                .append("------------ Поиск заявки по имени --------------\r\n")
+                .append("Результат : " + tracker.findByName(item.getName()) + "\r\n")
+                .append("Меню.\r\n")
+                .append("0. Add new Item\r\n")
+                .append("1. Show all items\r\n")
+                .append("2. Edit item\r\n")
+                .append("3. Delete item\r\n")
+                .append("4. Find item by Id\r\n")
+                .append("5. Find items by name\r\n")
+                .append("6. Exit Program\r\n")
+                .toString()
+        ));
     }
 
 
