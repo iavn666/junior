@@ -40,18 +40,30 @@ public class StartUITest {
         Input input = new StubInput(new String[]{"1", "6"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
         assertThat(this.out.toString(), is(new StringBuilder()
-                .append("Меню.\r\n")
-                .append("0. Add new Item\r\n")
-                .append("1. Show all items\r\n")
-                .append("2. Edit item\r\n")
-                .append("3. Delete item\r\n")
-                .append("4. Find item by Id\r\n")
-                .append("5. Find items by name\r\n")
-                .append("6. Exit Program\r\n")
-                .append("------------ Показать все заявки --------------\r\n")
-                .append(item + "\r\n")
-                .append("------------ Результат : " + Arrays.toString(new Item[]{item}) + "------------\r\n")
-                .append("Меню.\r\n")
+                .append("Меню.")
+                .append(System.lineSeparator())
+                .append("0. Add new Item")
+                .append(System.lineSeparator())
+                .append("1. Show all items")
+                .append(System.lineSeparator())
+                .append("2. Edit item")
+                .append(System.lineSeparator())
+                .append("3. Delete item")
+                .append(System.lineSeparator())
+                .append("4. Find item by Id")
+                .append(System.lineSeparator())
+                .append("5. Find items by name")
+                .append(System.lineSeparator())
+                .append("6. Exit Program")
+                .append(System.lineSeparator())
+                .append("------------ Показать все заявки --------------")
+                .append(System.lineSeparator())
+                .append(item + "")
+                .append(System.lineSeparator())
+                .append("------------ Результат : " + Arrays.toString(new Item[]{item}) + "------------")
+                .append(System.lineSeparator())
+                .append("Меню.")
+                .append(System.lineSeparator())
                 .append("0. Add new Item\r\n")
                 .append("1. Show all items\r\n")
                 .append("2. Edit item\r\n")
@@ -150,8 +162,8 @@ public class StartUITest {
                 .toString()
         ));
     }
-//tracker.findByName(item.getName()
-    //new Item[]{item})
+
+    //Результат : " +
     @Test
     public void whenUserFindItembyName() {
         Tracker tracker = new Tracker();// создаём Tracker
