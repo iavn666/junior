@@ -36,26 +36,12 @@ public class StartUI {
     }
 
     public void init() {
-        boolean exit = false;
-        while (!exit) {
-            this.showMenu();
-            String answer = this.input.ask("Введите пункт меню : ");
-            if (ADD.equals(answer)) {
-                this.createItem();
-             } else if (FINDID.equals(answer)) {
-                this.findid();
-             } else if (EXIT.equals(answer)) {
-                exit = true;
-             } else if (SHOWALLITEMS.equals(answer)) {
-                this.showallitems();
-             } else if (EDITITEM.equals(answer)) {
-                this.edititem();
-             } else if (DELITEITEM.equals(answer)) {
-                this.deliteitem();
-             } else if (FINDITEMNAME.equals(answer)) {
-                this.finditemname();
-            }
-        }
+        MenuTracker menu = new MenuTracker(this.input, this.tracker);
+        menu.fillActions();
+        do {
+            menu.show();
+            menu.select(Integer.valueOf(input.ask("select:")));
+        } while (!"y".equals(this.input.ask("Exit?(y): ")));
     }
 
     private void showallitems() {
@@ -152,4 +138,6 @@ public class StartUI {
     public static void main(String[] args) {
         new StartUI(new ConsoleInput(), new Tracker()).init();
     }
+
+
 }

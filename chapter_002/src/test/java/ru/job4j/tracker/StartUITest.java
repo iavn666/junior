@@ -21,6 +21,10 @@ public class StartUITest {
     // буфер для результата.
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
 
+    public final StartUI   = new StartUI();
+
+
+
     @Before
     public void loadOutput() {
         System.out.println("execute before method");
