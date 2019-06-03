@@ -40,7 +40,8 @@ public class StartUI {
         menu.fillActions();
         do {
             menu.show();
-            menu.select(Integer.valueOf(input.ask("select:")));
+            int key = Integer.valueOf(input.ask("select:"));
+            menu.select(key);
         } while (!"y".equals(this.input.ask("Exit?(y): ")));
     }
 
@@ -111,7 +112,6 @@ public class StartUI {
         String id = this.input.ask("Введите id заявки :");
         String name = this.input.ask("Введите имя заявки :");
         String desc = this.input.ask("Введите описание заявки :");
-        //String name = this.input.ask("Введите имя заявки");
         Item item = new Item(name, desc, 1);
         if (this.tracker.replace(id, item)) {
         System.out.println("Результат : true");

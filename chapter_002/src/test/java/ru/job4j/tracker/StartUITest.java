@@ -21,7 +21,7 @@ public class StartUITest {
     // буфер для результата.
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
 
-    public final StartUI   = new StartUI();
+   // public final StartUI   = new StartUI();
 
 
 

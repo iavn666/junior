@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MenuTracker {
     /**
      * @param хранит ссылку на объект .
@@ -12,7 +15,7 @@ public class MenuTracker {
     /**
      * @param хранит ссылку на массив типа UserAction.
      */
-    private UserAction[] actions = new UserAction[5];
+    private List<UserAction> actions = new ArrayList<UserAction>();
 
     /**
      * Конструктор.
@@ -48,6 +51,10 @@ public class MenuTracker {
     }
 
     public class AddItem implements UserAction {
+        public AddItem(int i, String add_program) {
+
+        }
+
         @Override
         public int key() {
             return 0;
@@ -67,7 +74,181 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return "Add new Item.";
+            return "0. Add new Item.";
+        }
+    }
+
+    public class ShowItems implements UserAction {
+        public ShowItems(int i, String add_program) {
+
+        }
+
+        @Override
+        public int key() {
+            return 1;
+        }
+
+        @Override
+        public void execute(Input input, Tracker tracker) {
+            System.out.println("------------ Show all items -------------");
+            for (Item item : tracker.findAll()) {
+                System.out.println(String.format("%s. %s", item.getName(), item.getId()));
+            }
+
+        }
+
+        @Override
+        public String info() {
+            return "1. Show all items.";
+        }
+    }
+
+    public class UpdateItem implements UserAction {
+        public UpdateItem(int i, String add_program) {
+
+        }
+
+        @Override
+        public int key() {
+            return 2;
+        }
+
+        @Override
+        public void execute(Input input, Tracker tracker) {
+            System.out.println("------------ Edit items. -------------");
+            String id = input.ask("Enter id item :");
+            String name = input.ask("Enter name item :");
+            String desc = input.ask("Enter desc item :");
+            Item item = new Item(name, desc, 1);
+            if (tracker.replace(id, item)) {
+                System.out.println("Results : true");
+            } else {
+                System.out.println("Results : false");
+            }
+
+        }
+
+        @Override
+        public String info() {
+            return "2. Edit items.";
+        }
+    }
+
+    public class DeleteItem implements UserAction {
+        public DeleteItem(int i, String add_program) {
+
+        }
+
+        @Override
+        public int key() {
+            return 3;
+        }
+
+        @Override
+        public void execute(Input input, Tracker tracker) {
+            System.out.println("------------ Delete items. -------------");
+            String id = input.ask("Enter id items :");
+            if (tracker.delete(id)) {
+                System.out.println(String.format("Item with id : $s was delete", id));
+            } else {
+                System.out.println("Item not found");
+            }
+
+        }
+
+        @Override
+        public String info() {
+            return "3. Delete items.";
+        }
+    }
+
+    public class FindItemById implements UserAction {
+        public FindItemById(int i, String add_program) {
+
+        }
+
+        @Override
+        public int key() {
+            return 4;
+        }
+
+        @Override
+        public void execute(Input input, Tracker tracker) {
+            System.out.println("------------ Find Item By Id. -------------");
+            String id = input.ask("Enter id item :");
+            Item items = tracker.findById(id);
+            if (items != null) {
+                System.out.println("------------ Search results -----------");
+                System.out.println(items);
+            } else {
+                System.out.println("------------ Search results : null -----------");
+            }
+
+        }
+
+        @Override
+        public String info() {
+            return "4. Find Item By Id.";
+        }
+    }
+
+    public class FindItemsByName implements UserAction {
+        public FindItemsByName(int i, String add_program) {
+
+        }
+
+        @Override
+        public int key() {
+            return 5;
+        }
+
+        @Override
+        public void execute(Input input, Tracker tracker) {
+            System.out.println("------------ Find Items by name. -------------");
+            String name = input.ask("Enter name items :");
+            Item[] all = tracker.findByName(name);
+            if (all.length > 0) {
+                for (Item item : all) {
+                    System.out.println("---------- Result : -------------");
+                    System.out.println(item);
+                }
+            } else {
+                System.out.println("NO ITEM");
+            }
+
+        }
+
+        @Override
+        public String info() {
+            return "5. Find Items by name";
+        }
+    }
+
+    public class ExitProgram implements UserAction {
+        public ExitProgram(int i, String add_program) {
+
+        }
+
+        @Override
+        public int key() {
+            return 6;
+        }
+
+        @Override
+        public void execute(Input input, Tracker tracker) {
+            System.out.println("------------ Exit program. -------------");
+            MenuTracker menu = new MenuTracker(input, tracker);
+            menu.fillActions();
+            do {
+                int key = Integer.valueOf(input.ask("Are you sure? :"));
+                menu.select(key);
+               } while (!"y".equals(input.ask("Exit?(y): ")));
+
+        }
+
+        @Override
+        public String info() {
+            return "6. Exit program";
         }
     }
 
@@ -78,7 +259,7 @@ public class MenuTracker {
      * @param key ключ операции
      */
     public void select(int key) {
-        this.actions[key].execute(this.input, this.tracker);
+        this.actions.get(key).execute(this.input, this.tracker);
     }
 
     /**
