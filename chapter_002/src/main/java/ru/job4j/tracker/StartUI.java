@@ -16,6 +16,12 @@ public class StartUI {
     private static final String FINDITEMNAME = "5";
     private static final String EXIT = "6";
 
+    private boolean exit = false;
+
+    public void exit() {
+        this.exit = true;
+    }
+
 
     private final Input input;
 
@@ -37,12 +43,12 @@ public class StartUI {
 
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
-        menu.fillActions();
+        menu.fillActions(this);//передаем экземпляр StartUi в MenuTracer
         do {
             menu.show();
             int key = Integer.valueOf(input.ask("select:"));
             menu.select(key);
-        } while (!"y".equals(this.input.ask("Exit?(y): ")));
+        } while (!this.exit);
     }
 
     private void showallitems() {

@@ -40,15 +40,17 @@ public class MenuTracker {
     /**
      * Метод заполняет массив.
      */
-    public void fillActions() {
+    public void fillActions(StartUI ui) {
         this.actions.add(new AddItem(0, "Add program"));
         this.actions.add(new ShowItems(1, "Show all items"));
         this.actions.add(new UpdateItem(2, "Edit item"));
         this.actions.add(new DeleteItem(3, "Delete item"));
         this.actions.add(new FindItemById(4, "Find item by Id"));
         this.actions.add(new FindItemsByName(5, "Find items by name"));
-        this.actions.add(new ExitProgram(6, "Exit Program"));
+        this.actions.add(new ExitProgram(6, "Exit Program",ui));
     }
+
+
 
     public class AddItem implements UserAction {
         public AddItem(int i, String add_program) {
@@ -225,8 +227,14 @@ public class MenuTracker {
     }
 
     public class ExitProgram implements UserAction {
-        public ExitProgram(int i, String add_program) {
+        private  int key;
+        private String name;
+        private StartUI ui;
 
+        public ExitProgram(int key, String name, StartUI ui) {
+            this.key = key;
+            this.name = name;
+            this.ui = ui;
         }
 
         @Override
@@ -237,18 +245,12 @@ public class MenuTracker {
         @Override
         public void execute(Input input, Tracker tracker) {
             System.out.println("------------ Exit program. -------------");
-            MenuTracker menu = new MenuTracker(input, tracker);
-            menu.fillActions();
-            do {
-                int key = Integer.valueOf(input.ask("Are you sure? :"));
-                menu.select(key);
-               } while (!"y".equals(input.ask("Exit?(y): ")));
-
+            this.ui.exit();
         }
 
         @Override
         public String info() {
-            return "6. Exit program";
+            return String.format("%d. %s", key, name);
         }
     }
 
