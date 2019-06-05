@@ -50,6 +50,8 @@ public class MenuTracker {
         this.actions.add(new ExitProgram(6, "Exit Program",ui));
     }
 
+    public void fillActions() {
+    }
 
 
     public class AddItem implements UserAction {

@@ -1,6 +1,8 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * @version $Id$
@@ -17,6 +19,7 @@ public class StartUI {
     private static final String EXIT = "6";
 
     private boolean exit = false;
+
 
     public void exit() {
         this.exit = true;
@@ -43,13 +46,17 @@ public class StartUI {
 
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
-        menu.fillActions(this);//передаем экземпляр StartUi в MenuTracer
+        List<Integer> range = new ArrayList<>();
+        menu.fillActions();
+        for (int i = 0; i < menu.getActionsLentgh(); i++) {
+            range.add(i);
+        }
         do {
             menu.show();
-            int key = Integer.valueOf(input.ask("select:"));
-            menu.select(key);
-        } while (!this.exit);
+            menu.select(input.ask("select:", range));
+        } while (!"y".equals(this.input.ask("Exit?(y): ")));
     }
+
 
     private void showallitems() {
         System.out.println("------------ Показать все заявки --------------");

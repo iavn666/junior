@@ -22,6 +22,8 @@ public class StubInput implements Input {
         this.value = value;
     }
 
+
+
     /**
      * Давайте рассмотрим, как работает этот метод.
      * у нас есть объект в котором содержатся заранее продуманные ответы.
@@ -33,5 +35,9 @@ public class StubInput implements Input {
     @Override
     public String ask(String question) {
         return this.value[this.position++];
+    }
+
+    public int ask(String question, int[] range) {
+        return -1;
     }
 }
