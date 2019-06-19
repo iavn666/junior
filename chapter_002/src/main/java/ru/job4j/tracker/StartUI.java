@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import org.w3c.dom.ranges.Range;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -19,6 +21,7 @@ public class StartUI {
     private static final String EXIT = "6";
 
     private boolean exit = false;
+
 
 
     public void exit() {
@@ -47,13 +50,14 @@ public class StartUI {
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
         List<Integer> range = new ArrayList<>();
+        int[] rang = new int[]{0,1,2,3,4,5,6};
         menu.fillActions();
         for (int i = 0; i < menu.getActionsLentgh(); i++) {
             range.add(i);
         }
         do {
             menu.show();
-            menu.select(input.ask("select:", range));
+            menu.select(input.ask("select:",rang));
         } while (!"y".equals(this.input.ask("Exit?(y): ")));
     }
 
