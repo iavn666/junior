@@ -54,9 +54,10 @@ public class MenuTracker {
     }
 
 
-    public class AddItem implements UserAction {
-        public AddItem(int i, String add_program) {
+    public class AddItem extends BaseAction {
 
+        public AddItem(int key, String name) {
+            super(key, name);
         }
 
         @Override
@@ -82,9 +83,10 @@ public class MenuTracker {
         }
     }
 
-    public class ShowItems implements UserAction {
-        public ShowItems(int i, String add_program) {
+    public class ShowItems extends BaseAction {
 
+        public ShowItems(int key, String name) {
+             super(key, name);
         }
 
         @Override
@@ -107,8 +109,10 @@ public class MenuTracker {
         }
     }
 
-    public class UpdateItem implements UserAction {
-        public UpdateItem(int i, String add_program) {
+    public class UpdateItem extends BaseAction {
+
+        public UpdateItem(int key, String name) {
+            super(key, name);
 
         }
 
@@ -138,8 +142,9 @@ public class MenuTracker {
         }
     }
 
-    public class DeleteItem implements UserAction {
-        public DeleteItem(int i, String add_program) {
+    public class DeleteItem extends BaseAction {
+        public DeleteItem(int key, String name) {
+            super(key, name);
 
         }
 
@@ -166,8 +171,9 @@ public class MenuTracker {
         }
     }
 
-    public class FindItemById implements UserAction {
-        public FindItemById(int i, String add_program) {
+    public class FindItemById extends BaseAction {
+        public FindItemById(int key, String name) {
+            super(key, name);
 
         }
 
@@ -196,8 +202,9 @@ public class MenuTracker {
         }
     }
 
-    public class FindItemsByName implements UserAction {
-        public FindItemsByName(int i, String add_program) {
+    public class FindItemsByName extends BaseAction {
+        public FindItemsByName(int key, String name) {
+            super(key, name);
 
         }
 
