@@ -2,6 +2,8 @@ package ru.job4j.search;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
+import java.util.LinkedList;
 
 public class PhoneDictionary {
     private List<Person> persons = new ArrayList<Person>();
@@ -10,7 +12,7 @@ public class PhoneDictionary {
         this.persons.add(person);
     }
 
-    /**
+     /**
      * Вернуть список всех пользователей, который содержат key в любых полях.
      * @param key Ключ поиска.
      * @return Список подощедщих пользователей.

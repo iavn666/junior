@@ -1,5 +1,8 @@
 package ru.job4j.search;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class User {
 
     private String name;
@@ -29,6 +32,8 @@ public class User {
     public String getAddress() {
         return address;
     }
+
+
 
 
 
