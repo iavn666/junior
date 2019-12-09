@@ -12,6 +12,7 @@ public class PriorityQueue {
      * @param task задача
      */
     public void put(Task task) {
+        
         int index = 0;
         for (int count = 0; count < tasks.size(); count++) {
             if (task.getPriority() <= tasks.get(count).getPriority()) {
