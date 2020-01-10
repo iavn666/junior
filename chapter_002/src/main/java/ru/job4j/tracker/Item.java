@@ -1,8 +1,12 @@
 package ru.job4j.tracker;
 
+import com.sun.istack.internal.NotNull;
+import java.util.Comparator;
+
 import java.util.Objects;
 
-public class Item {
+public class Item implements Comparable<Item> {
+    
     private String id;
     private String name;
     private String decs;
@@ -12,6 +16,7 @@ public class Item {
         this.name = name;
         this.decs = decs;
         this.time = time;
+
     }
 
     public String getId() {
@@ -72,5 +77,10 @@ public class Item {
     @Override
     public int hashCode() {
         return Objects.hash(name, decs, time);
+    }
+
+    @Override
+    public int compareTo(@NotNull Item b) {
+        return getName().compareTo(b.getName());
     }
 }
