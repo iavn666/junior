@@ -7,16 +7,25 @@ import java.util.Objects;
 public class User implements Comparable<User> {
     private String name;
     private int age;
-    //private User o;
+    private int priority;
 
-    public User(String name, int age) {
+
+    public User(String name, int age, int priority) {
         this.name = name;
         this.age = age;
+        this.priority = priority;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPriority() {
+        return priority;
     }
 
     @Override
     public int compareTo(@NotNull User o) {
-
         return name.compareTo(o.name);
     }
 
