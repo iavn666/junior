@@ -1,12 +1,11 @@
 package ru.job4j.tracker;
 
 import com.sun.istack.internal.NotNull;
-import java.util.Comparator;
 
-import java.util.Objects;
+import java.util.*;
 
-public class Item implements Comparable<Item> {
-    
+public class Item implements Comparable <Item> {
+
     private String id;
     private String name;
     private String decs;
@@ -62,6 +61,8 @@ public class Item implements Comparable<Item> {
                 '}';
     }
 
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -79,8 +80,23 @@ public class Item implements Comparable<Item> {
         return Objects.hash(name, decs, time);
     }
 
+
     @Override
-    public int compareTo(@NotNull Item b) {
-        return getName().compareTo(b.getName());
+      public int compareTo(Item o) {
+        return this.name.compareTo(o.getName());
+     }
+
+    public static void main(String[] args) {
+        List<Item> items = Arrays.asList(
+                new Item("Ivan", "32",2),
+                new Item("Petya", "32",3),
+                new Item("Sergey", "wda",45)
+        );
+        System.out.println(items);
+        Collections.sort(items);
+        Collections.sort(items, new ItemSort());
+        System.out.println(items);
+        Collections.sort(items, new ItemSortTwo());
+        System.out.println(items);
     }
 }
