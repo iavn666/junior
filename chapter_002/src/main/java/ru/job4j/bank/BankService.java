@@ -31,6 +31,7 @@ public class BankService {
                 break;
             }
 
+
         }
 
         return a;
@@ -39,13 +40,14 @@ public class BankService {
     public Account findByRequisite(String passport, String requisite) {
         Account a = null;
         User user = findByPassport(passport);
-        for (Account num : users.get(user)) {
-            if (num.getRequisite() == requisite) {
-                a = num;
+        if(user != null) {
+            for (Account num : users.get(user)) {
+                if (num.getRequisite().equals(requisite)) {
+                    a = num;
+                }
+
             }
-
         }
-
         return a;
     }
 
