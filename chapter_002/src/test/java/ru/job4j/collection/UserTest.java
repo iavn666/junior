@@ -13,22 +13,21 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class UserTest {
-
-   @Test
-    public void whenCompatorByNameAndPrority() {
-        Comparator<User> cmpNamePriority = new UserDescByName().thenComparing(new UserDescByPriority());
-        int rsl = cmpNamePriority.compare(
-                new User("fmpl task", 0,2),
-                new User("iix bug", 1,2)
-        );
-        assertThat(rsl, lessThan(0));
+    @Test
+    public void whenAsc() {
+        Set<User> users = new TreeSet<>();
+        users.add(new User("Petr", 32));
+        users.add(new User("Ivan", 31));
+        Iterator<User> it = users.iterator();
+        assertThat(it.next(), is(new User("Ivan", 31)));
+        assertThat(it.next(), is(new User("Petr", 32)));
     }
 
     @Test
     public void whenComparePertVSIvan() {
-        int rsl = new User("Petr", 32,2)
+        int rsl = new User("Petr", 32)
                 .compareTo(
-                        new User("Ivan", 31,1)
+                        new User("Ivan", 31)
                 );
         assertThat(rsl, greaterThan(0));
     }
