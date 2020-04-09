@@ -1,9 +1,6 @@
 package ru.job4j.collection;
 
-import java.util.HashMap;
 import java.util.HashSet;
-
-import static com.sun.jmx.snmp.ThreadContext.contains;
 
 public class UniqueText {
     public static boolean isEquals(String originText, String duplicateText) {
@@ -15,12 +12,9 @@ public class UniqueText {
             check.add(a);
         }
         for (String b : text) {
-            for (String c : origin) {
-                rsl = c.contains(b);
-                return rsl;
-            }
+            return check.contains(b);
 
-           }
+        }
         return rsl;
     }
 }

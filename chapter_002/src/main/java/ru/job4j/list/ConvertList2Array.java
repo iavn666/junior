@@ -7,25 +7,35 @@ public class ConvertList2Array {
         int groups = (int) Math.ceil((double) list.size() / cells);
         int[][] array = new int[groups][cells];
         int row = 0, cell = 0;
-        for (Integer num: list) {
-            if(cell<cells) {
+        for (Integer num : list) {
+            if (cell < cells) {
                 array[row][cell++] = num;
-            } else{
-                cell=0;
+            } else {
+                cell = 0;
                 ++row;
                 array[row][cell++] = num;
             }
 
-            }
-
+        }
 
 
         return array;
 
     }
 
+    public List<Integer> convert(List<int[]> list) {
+        List<Integer> num = new ArrayList<>();
+        for (int[] numik : list) {
+            for (int a : numik) {
+                num.add(a);
+            }
+
+        }
+        return num;
+    }
+
     public static void main(String[] args) {
-        List<Integer> list = Arrays.asList(1, 2, 3,4,5,6,7);
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
         int[][] rsl = toArray(list, 3);
         for (int[] row : rsl) {
             for (int cell : row) {

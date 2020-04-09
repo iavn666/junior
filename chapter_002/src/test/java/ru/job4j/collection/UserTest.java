@@ -2,33 +2,79 @@ package ru.job4j.collection;
 
 import org.junit.Test;
 
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.TreeSet;
+import javax.swing.*;
+import java.util.*;
 
-import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.lessThan;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class UserTest {
+
     @Test
-    public void whenAsc() {
-        Set<User> users = new TreeSet<>();
-        users.add(new User("Petr", 32));
-        users.add(new User("Ivan", 31));
-        Iterator<User> it = users.iterator();
-        assertThat(it.next(), is(new User("Ivan", 31)));
-        assertThat(it.next(), is(new User("Petr", 32)));
+    public void UserByName() {
+        Comparator<User> cmpName = new UserDescByName();
+        List<User> result = Arrays.asList(
+                new User("ivan",1),
+                new User("Petya",3)
+        );
+        Collections.sort(result,cmpName);
+        List<User> excepted = Arrays.asList(
+                new User("Petya",3),
+                new User("ivan",1)
+        );
+        assertThat(result, is (excepted));
     }
 
     @Test
-    public void whenComparePertVSIvan() {
-        int rsl = new User("Petr", 32)
-                .compareTo(
-                        new User("Ivan", 31)
-                );
-        assertThat(rsl, greaterThan(0));
+    public void UserByNameDown() {
+        Comparator<User> cmpNameDown = new UserDescByNameDown();
+        List<User> result = Arrays.asList(
+                new User("ivan",1),
+                new User("Petya",3)
+        );
+        Collections.sort(result,cmpNameDown);
+        List<User> excepted = Arrays.asList(
+                new User("ivan",1),
+                new User("Petya",3)
+
+        );
+        assertThat(result, is (excepted));
     }
-}
+
+    @Test
+    public void UserByPrioriti() {
+        Comparator<User> cmpPrioriti = new UserDescByPriority();
+        List<User> result = Arrays.asList(
+                new User("ivan",1),
+                new User("Petya",3)
+        );
+        Collections.sort(result,cmpPrioriti);
+        List<User> excepted = Arrays.asList(
+                new User("ivan",1),
+                new User("Petya",3)
+
+        );
+        assertThat(result, is (excepted));
+    }
+
+
+
+    @Test
+    public void UserByPrioritiDown() {
+        Comparator<User> cmpPrioritiDown = new UserDescByPriorityDown();
+        List<User> result = Arrays.asList(
+                new User("ivan",1),
+                new User("Petya",3)
+        );
+        Collections.sort(result,cmpPrioritiDown);
+        List<User> excepted = Arrays.asList(
+                new User("Petya",3),
+                new User("ivan",1)
+
+        );
+        assertThat(result, is (excepted));
+    }
+
+
+    }

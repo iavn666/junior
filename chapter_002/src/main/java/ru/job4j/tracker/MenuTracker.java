@@ -46,7 +46,7 @@ public class MenuTracker {
         this.actions.add(new UpdateItem(2, "Edit item"));
         this.actions.add(new DeleteItem(3, "Delete item"));
         this.actions.add(new FindItemById(4, "Find item by Id"));
-        this.actions.add(new FindItemsByName(5, "Find items by name"));
+        //this.actions.add(new FindItemsByName(5, "Find items by name"));
         this.actions.add(new ExitProgram(6, "Exit Program",ui));
     }
 
@@ -202,18 +202,18 @@ public class MenuTracker {
         }
     }
 
-    public class FindItemsByName extends BaseAction {
+    /*public class FindItemsByName extends BaseAction {
         public FindItemsByName(int key, String name) {
             super(key, name);
 
-        }
+        }*/
 
-        @Override
+       /* @Override
         public int key() {
             return 5;
-        }
+        }*/
 
-        @Override
+       /* @Override
         public void execute(Input input, Tracker tracker) {
             System.out.println("------------ Find Items by name. -------------");
             String name = input.ask("Enter name items :");
@@ -227,13 +227,13 @@ public class MenuTracker {
                 System.out.println("NO ITEM");
             }
 
-        }
+        }*/
 
-        @Override
+       /* @Override
         public String info() {
             return "5. Find Items by name";
         }
-    }
+    }*/
 
     public class ExitProgram implements UserAction {
         private  int key;

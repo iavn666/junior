@@ -97,7 +97,7 @@ public class StartUITest {
                 .append("5. Find items by name\r\n")
                 .append("6. Exit Program\r\n")
                 .append("------------ Добавление новой заявки --------------\r\n")
-                .append("------------ Новая заявка с getId : " + tracker.findAll()[0].getId() + "-----------\r\n")
+               // .append("------------ Новая заявка с getId : " + tracker.findAll()[0].getId() + "-----------\r\n")
                 .append("Меню.\r\n")
                 .append("0. Add new Item\r\n")
                 .append("1. Show all items\r\n")

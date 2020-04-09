@@ -62,7 +62,7 @@ public class StartUI {
     }
 
 
-    private void showallitems() {
+   /* private void showallitems() {
         System.out.println("------------ Показать все заявки --------------");
         final Item[] all = this.tracker.findAll();
         if (all.length > 0) {
@@ -74,7 +74,7 @@ public class StartUI {
         }
 
         System.out.println("------------ Результат : " + Arrays.toString(this.tracker.findAll()) + "------------");
-    }
+    }*/
 
 
     private void deliteitem() {
@@ -89,7 +89,7 @@ public class StartUI {
 
     }
 
-    private void finditemname() {
+   /* private void finditemname() {
         System.out.println("------------ Поиск заявки по имени --------------");
         String name = this.input.ask("Введите имя заявки :");
         Item[] all = this.tracker.findByName(name);
@@ -100,7 +100,7 @@ public class StartUI {
         }  else {
             System.out.println("NO ITEM");
            }
-    }
+    }*/
 
     private void findid() {
         System.out.println("------------ Поиск заявки --------------");
