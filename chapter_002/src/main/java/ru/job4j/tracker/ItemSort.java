@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class ItemSort implements Comparator <Item> {
+public class ItemSort implements Comparator<Item> {
 
     @Override
     public int compare(Item a, Item b) {

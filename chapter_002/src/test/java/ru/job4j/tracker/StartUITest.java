@@ -112,7 +112,7 @@ public class StartUITest {
 
     @Test
     public void whenUserDeleteItemThenTrackerHasNewItemWithSameName() {
-        Tracker tracker = new Tracker();// создаём Tracker
+        Tracker tracker = new Tracker(); // создаём Tracker
         Item item = tracker.add(new Item("test name", "desc", 1));
         Input input = new StubInput(new String[]{"3", item.getId(), "6"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
@@ -141,7 +141,7 @@ public class StartUITest {
 
     @Test
     public void whenUserFindItemThenTrackerHasNewItemWithSameName() {
-        Tracker tracker = new Tracker();// создаём Tracker
+        Tracker tracker = new Tracker(); // создаём Tracker
         Item item = tracker.add(new Item("test name", "desc", 1));
         Input input = new StubInput(new String[]{"4", item.getId(), "6"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
@@ -155,7 +155,7 @@ public class StartUITest {
                 .append("6. Exit Program\r\n")
                 .append("------------ Find Item By Id. -------------\r\n")
                 .append("------------ Search results -----------\r\n")
-                .append(tracker.findById(item.getId())+ "\r\n")
+                .append(tracker.findById(item.getId()) + "\r\n")
                 .append("0. Add new Item.\r\n")
                 .append("1. Show all items.\r\n")
                 .append("2. Edit items.\r\n")
@@ -171,11 +171,11 @@ public class StartUITest {
     //Результат : " +
     @Test
     public void whenUserFindItembyName() {
-        Tracker tracker = new Tracker();// создаём Tracker
+        Tracker tracker = new Tracker(); // создаём Tracker
         Item item = tracker.add(new Item("test name", "desc", 1));
         Input input = new StubInput(new String[]{"5", item.getName(), "6"});
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
-        assertThat(this.out.toString(),is(new StringBuilder()
+        assertThat(this.out.toString(), is(new StringBuilder()
                 .append("0. Add new Item.\r\n")
                 .append("1. Show all items.\r\n")
                 .append("2. Edit items.\r\n")

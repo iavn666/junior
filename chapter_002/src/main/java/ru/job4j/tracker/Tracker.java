@@ -17,7 +17,7 @@ public class Tracker {
      */
 
 
-    private final List <Item> items = new ArrayList<>();
+    private final List<Item> items = new ArrayList<>();
     private static final Random RN = new Random();
 
 
@@ -39,13 +39,14 @@ public class Tracker {
 
     public boolean replace(String id, Item item) {
         boolean result = false;
-        for (int index = 0; index != this.position; index++)
+        for (int index = 0; index != this.position; index++) {
             if (items.get(index).equals(id)) {
                 item.setId(id);
-                items.add(index,item);
+                items.add(index, item);
                 result = true;
                 break;
             }
+        }
         return result;
     }
 
@@ -74,7 +75,7 @@ public class Tracker {
      * @return Массив полученных значений
      */
     public List<Item> findByName(String key) {
-         List <Item> result = new ArrayList<>(this.position);
+         List<Item> result = new ArrayList<>(this.position);
         int a = 0;
         for (int index = 0; index != position; index++) {
             if (items.get(index).getName().equals(key)) {

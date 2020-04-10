@@ -1,6 +1,6 @@
 package ru.job4j.bank;
 
-import javax.jws.soap.SOAPBinding;
+
 import java.util.*;
 
 import static javax.swing.UIManager.addPropertyChangeListener;
@@ -40,7 +40,7 @@ public class BankService {
     public Account findByRequisite(String passport, String requisite) {
         Account a = null;
         User user = findByPassport(passport);
-        if(user != null) {
+        if (user != null) {
             for (Account num : users.get(user)) {
                 if (num.getRequisite().equals(requisite)) {
                     a = num;
@@ -52,15 +52,15 @@ public class BankService {
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
-                                 String destPassport, String dеstRequisite, double amount) {
+                                 String destPassport, String dstRequisite, double amount) {
         boolean rsl = false;
         User a = findByPassport(srcPassport);
         Account b = findByRequisite(srcPassport, srcRequisite);
         for (Account num : users.get(a)) {
-            if ((num.getRequisite() != srcRequisite) || (num.getBalance() != b.getBalance())) {
+            if ((!num.getRequisite().equals(srcRequisite)) || (num.getBalance() != b.getBalance())) {
                 rsl = false;
             } else {
-                Account c = findByRequisite(destPassport, dеstRequisite);
+                Account c = findByRequisite(destPassport, dstRequisite);
                 amount = b.getBalance() + c.getBalance();
                 c.setBalance(amount);
                 rsl = true;

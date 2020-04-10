@@ -24,7 +24,7 @@ public class UserTest {
     }
 
     @Test
-    public void UserByName() {
+    public void userByName() {
         Comparator<User> cmpName = new UserDescByName();
         List<User> result = Arrays.asList(
                 new User("ivan", 1),
@@ -39,7 +39,7 @@ public class UserTest {
     }
 
     @Test
-    public void UserByNameDown() {
+    public void userByNameDown() {
         Comparator<User> cmpNameDown = new UserDescByNameDown();
         List<User> result = Arrays.asList(
                 new User("ivan", 1),
@@ -55,7 +55,7 @@ public class UserTest {
     }
 
     @Test
-    public void UserByPrioriti() {
+    public void userByPrioriti() {
         Comparator<User> cmpPrioriti = new UserDescByPriority();
         List<User> result = Arrays.asList(
                 new User("ivan", 1),
@@ -72,7 +72,7 @@ public class UserTest {
 
 
     @Test
-    public void UserByPrioritiDown() {
+    public void userByPrioritiDown() {
         Comparator<User> cmpPrioritiDown = new UserDescByPriorityDown();
         List<User> result = Arrays.asList(
                 new User("ivan", 1),

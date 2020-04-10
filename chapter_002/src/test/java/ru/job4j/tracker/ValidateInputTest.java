@@ -36,7 +36,7 @@ public class ValidateInputTest {
     public void whenInvalidInput() {
         ValidateInput input = new ValidateInput(new StubInput(new String[] {"invalid", "1"}));
         input.ask("Enter", new int[] {1});
-        assertThat(this.mem.toString(),is(String.format("Please enter validate data again.\r\n")
+        assertThat(this.mem.toString(), is(String.format("Please enter validate data again.\r\n")
                 )
         );
     }

@@ -4,7 +4,7 @@ package ru.job4j.tracker;
 
 import java.util.*;
 
-public class Item implements Comparable <Item> {
+public class Item implements Comparable<Item> {
 
     private String id;
     private String name;
@@ -53,12 +53,12 @@ public class Item implements Comparable <Item> {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", decs='" + decs + '\'' +
-                ", time=" + time +
-                '}';
+        return "Item{"
+                + "id='" + id + '\''
+                + ", name='" + name + '\''
+                + ", decs='" + decs + '\''
+                + ", time=" + time
+                + '}';
     }
 
 
@@ -88,9 +88,9 @@ public class Item implements Comparable <Item> {
 
     public static void main(String[] args) {
         List<Item> items = Arrays.asList(
-                new Item("Ivan", "32",2),
-                new Item("Petya", "32",3),
-                new Item("Sergey", "wda",45)
+                new Item("Ivan", "32", 2),
+                new Item("Petya", "32", 3),
+                new Item("Sergey", "wda", 45)
         );
         System.out.println(items);
         Collections.sort(items);
