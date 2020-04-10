@@ -1,10 +1,7 @@
 package ru.job4j.collection;
 
 
-
 import java.util.Objects;
-
-import static java.lang.Integer.compare;
 
 public class User implements Comparable<User> {
     private String name;
@@ -48,4 +45,4 @@ public class User implements Comparable<User> {
         return Integer.compare(priority, another.priority);
     }
 
-  }
+}
