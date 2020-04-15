@@ -17,8 +17,7 @@ public class StringCompare implements Comparator<String> {
         char[] first = left.toCharArray();
         char[] second = right.toCharArray();
         int size = (first.length < second.length) ? first.length : second.length;
-        if (first.length <= second.length) {
-            for (char num = 0; num < size; num++) {
+        for (char num = 0; num < size; num++) {
                 Character a = oneLeft.charAt(num);
                 Character b = oneRight.charAt(num);
                 if (a.compareTo(b) != 0) {
@@ -26,18 +25,10 @@ public class StringCompare implements Comparator<String> {
                     break;
                 }
             }
-        } else if (second.length < first.length) {
-            for (char num = 0; num < size; num++) {
-                Character a = oneLeft.charAt(num);
-                Character b = oneRight.charAt(num);
-                if (a.compareTo(b) != 0) {
-                    res = a.compareTo(b);
-                    break;
-                }
-
-            }
-
+        if (res == 0 && first.length != second.length) {
+            res = (first.length > second.length) ? 1 : -1;
         }
+
         return res;
     }
 }
