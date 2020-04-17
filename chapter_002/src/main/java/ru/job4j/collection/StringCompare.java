@@ -1,35 +1,25 @@
 package ru.job4j.collection;
 
 import javax.crypto.interfaces.PBEKey;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-
+import java.util.*;
 
 
 public class StringCompare implements Comparator<String> {
     @Override
     public int compare(String left, String right) {
-        int res = 0;
-        String oneLeft = left;
-        String oneRight = right;
-        char[] first = left.toCharArray();
-        char[] second = right.toCharArray();
-        int size = (first.length < second.length) ? first.length : second.length;
-        for (char num = 0; num < size; num++) {
-                Character a = oneLeft.charAt(num);
-                Character b = oneRight.charAt(num);
-                if (a.compareTo(b) != 0) {
-                    res = a.compareTo(b);
+        int size = Math.min(left.length(), right.length());
+        int res = Integer.compare(left.length(), right.length());
+        for (int num = 0; num < size; num++) {
+            Character a = left.charAt(num);
+            Character b = right.charAt(num);
+            res = a.compareTo(b);
+                if (res != 0) {
                     break;
+
                 }
             }
-        if (res == 0 && first.length != second.length) {
-            res = (first.length > second.length) ? 1 : -1;
-        }
 
-        return res;
+        return res == 0 ? Integer.compare(left.length(), right.length()) : res;
     }
 }
 
