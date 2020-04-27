@@ -5,22 +5,17 @@ import java.util.Comparator;
 
 
 public class FI {
-    public static void main(String[] args) {
-        String [] ab = {
-                "petya",
-                "ivan",
-                "semen"
-        };
+
+     public String[] res(String[] arg) {
+
         Comparator<String> cmpDescSize = (left, right) -> {
             System.out.println("compare - " + left.length() + ":" + right.length());
             return Integer.compare(right.length(),left.length());
         };
-        Arrays.sort(ab, cmpDescSize);
+        Arrays.sort(arg, cmpDescSize);
 
+         return arg;
     }
-
-
-
 
 
 
