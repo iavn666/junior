@@ -20,7 +20,12 @@ public class FITest {
         };
         FI name = new FI();
         String[] a = name.res(ab);
-        assertThat(a, is(ab));
+        String [] exp = {
+                "petya",
+                "semen",
+                "ivan"
+        };
+        assertThat(a, is(exp));
     }
 
 }
