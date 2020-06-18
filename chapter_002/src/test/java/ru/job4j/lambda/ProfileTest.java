@@ -18,7 +18,7 @@ public class ProfileTest {
         List<Profile> result = new ArrayList<>();
         Profile res = new Profile(new Address("Perm","kompros",10,5));
         res.collect(result);
-        assertThat(exp, is(result));
+        assertThat(result, is(exp));
     }
 
 }

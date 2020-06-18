@@ -8,13 +8,19 @@ public class Profile {
 
     private Address address;
 
-    public Profile (Address address) {
+    public Profile(Address address) {
         this.address = address;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
     List<Address> collect(List<Profile> profiles) {
-        Stream num = profiles.stream();
-         return num.map(x-> new Profile(address)).collect(Collectors.toList());
+        return profiles.stream().map(x -> x.getAddress()).collect(Collectors.toList());
+
+        //Stream num = profiles.stream();
+        //return num.map(x -> x.).collect(Collectors.toList());
 
     }
 
