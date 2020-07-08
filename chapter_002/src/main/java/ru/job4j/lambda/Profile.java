@@ -19,8 +19,6 @@ public class Profile {
     List<Address> collect(List<Profile> profiles) {
         return profiles.stream().map(x -> x.getAddress()).collect(Collectors.toList());
 
-        //Stream num = profiles.stream();
-        //return num.map(x -> x.).collect(Collectors.toList());
 
     }
 
