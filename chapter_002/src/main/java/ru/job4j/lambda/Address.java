@@ -1,6 +1,8 @@
 package ru.job4j.lambda;
 
-public class Address {
+import java.util.*;
+
+public class Address implements Comparable<Address> {
 
     private String city;
     private String street;
@@ -15,6 +17,27 @@ public class Address {
         this.home = home;
         this.apartment = apartment;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Address address = (Address) o;
+        return home == address.home &&
+                apartment == address.apartment &&
+                Objects.equals(city, address.city) &&
+                Objects.equals(street, address.street);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(city, street, home, apartment);
+    }
+
+    @Override
+    public int compareTo(Address o) {
+       return Integer.compare(this.home, o.getHome());
+   }
 
     public String getCity() {
         return city;
@@ -31,4 +54,17 @@ public class Address {
     public int getApartment() {
         return apartment;
     }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", home=" + home +
+                ", apartment=" + apartment +
+                '}';
+    }
+
+
+
 }
