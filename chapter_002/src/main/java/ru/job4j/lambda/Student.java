@@ -1,5 +1,9 @@
 package ru.job4j.lambda;
 
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 public class Student {
     private int score;
     private String surname;
@@ -19,6 +23,10 @@ public class Student {
      public void setScore (int score) {
         this.score = score;
      }
+
+    Map<String,Student> collect(List<Student> user) {
+        return user.stream().distinct().collect(Collectors.toMap(Student::getSurname, Student -> Student));
+    }
 
     @Override
     public String toString() {
