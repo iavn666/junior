@@ -20,9 +20,9 @@ public class PhoneDictionaryTest {
     public void FindByName() {
         PhoneDictionarys phones = new PhoneDictionarys();
         phones.add(
-                new Person("Petr", "Arsentev", "534872", "Bryansk")
+                new Persons("Petr", "Arsentev", "534872", "Bryansk")
         );
-        List<Person> persons = phones.find("Petr");
+        List<Persons> persons = phones.find("Petr");
         assertThat(persons.iterator().next().getSurname(), is("Arsentev"));
     }
 }
