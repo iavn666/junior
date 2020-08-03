@@ -11,7 +11,6 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class FullSearchsTest {
-
     @Test
     public void extractNumber() {
         List<Tasks> tasks = Arrays.asList(
