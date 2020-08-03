@@ -5,6 +5,7 @@ import java.util.List;
 
 
 public class ConvertLists {
+
     public static List<Integer> convert(List<int[]> list) {
         List<Integer> rsl = new ArrayList<>();
         for (int[] row : list) {
