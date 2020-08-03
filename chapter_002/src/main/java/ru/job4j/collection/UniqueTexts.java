@@ -13,7 +13,6 @@ public class UniqueTexts {
         }
         for (String num : text) {
             return check.contains(num);
-
         }
         /* for-each origin -> new HashSet. */
         /* for-each text -> hashSet.contains */
