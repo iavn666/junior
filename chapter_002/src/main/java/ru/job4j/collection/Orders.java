@@ -3,7 +3,6 @@ package ru.job4j.collection;
 import java.util.Objects;
 
 public class Orders {
-
     private String number;
     private String name;
 
