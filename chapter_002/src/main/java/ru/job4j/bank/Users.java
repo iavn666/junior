@@ -3,6 +3,7 @@ package ru.job4j.bank;
 import java.util.Objects;
 
 public class Users {
+
     private String passport;
     private String username;
 
