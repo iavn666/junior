@@ -9,7 +9,7 @@ public class NotifyAccounts {
         for (Accounts num : accounts) {
             rsl.add(num);
         }
-        // for-each accounts to HashSet;
+
         return rsl;
     }
 }
