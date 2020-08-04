@@ -5,13 +5,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PassportOffices {
+
     private Map<String, Citizens> citizens = new HashMap<>();
 
     public boolean add(Citizens citizen) {
         boolean rsl = false;
         if (citizens.containsKey(citizen.getPassport())) {
             return rsl;
-           } else {
+        } else {
             citizens.put(citizen.getPassport(), citizen);
         }
         return rsl;
