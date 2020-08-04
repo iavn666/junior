@@ -14,8 +14,9 @@ public class PassportOffices {
             return rsl;
         } else {
             citizens.put(citizen.getPassport(), citizen);
+
         }
-        return rsl;
+        return citizens.containsKey(citizen.getPassport());
     }
 
 
