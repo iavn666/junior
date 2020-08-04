@@ -10,13 +10,12 @@ public class PassportOffices {
 
     public boolean add(Citizens citizen) {
         boolean rsl = false;
-        if (citizens.containsKey(citizen.getPassport())) {
-            return rsl;
-        } else {
+        if (!citizens.containsKey(citizen.getPassport())) {
+            rsl = true;
             citizens.put(citizen.getPassport(), citizen);
 
         }
-        return citizens.containsKey(citizen.getPassport());
+        return rsl;
     }
 
 
