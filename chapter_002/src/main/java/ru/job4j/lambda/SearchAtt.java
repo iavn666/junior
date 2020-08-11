@@ -8,6 +8,7 @@ import java.util.function.Predicate;
 
 public class SearchAtt {
 
+
     public static List<Attachment> filter(Predicate<Attachment> num) {
         List<Attachment> res = new ArrayList<>();
         filterSize(res);
