@@ -10,10 +10,9 @@ import java.util.function.UnaryOperator;
 public class Diapason {
 
     List<Double> diapason(int start, int end, UnaryOperator<Double> func) {
-        double one = start;
         List<Double> res = new ArrayList<>();
-        for (int i = start; i < end; i++) {
-            res.add(func.apply(one++));
+        for (double i = start; i < end; i++) {
+            res.add(func.apply(i));
         }
         return res;
     }

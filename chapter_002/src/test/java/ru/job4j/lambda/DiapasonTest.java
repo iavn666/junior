@@ -19,6 +19,20 @@ public class DiapasonTest {
         assertThat(result, is(expected));
     }
 
-   // x -> 2 * x + 1
+    @Test
+    public void whenQuadraticFunctionThenQuadraticResults() {
+        Diapason function = new Diapason();
+        List<Double> result = function.diapason(5, 8, x -> 2 * (x*x) + x + 1);
+        List<Double> expected = Arrays.asList(56D, 79D, 106D);
+        assertThat(result, is(expected));
+    }
+
+    @Test
+    public void Demo() {
+        Diapason function = new Diapason();
+        List<Double> result = function.diapason(5, 8, x -> Math.pow(2, x));
+        List<Double> expected = Arrays.asList(32D, 64D, 128D);
+        assertThat(result, is(expected));
+    }
 
 }
