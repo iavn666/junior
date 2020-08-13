@@ -1,18 +1,24 @@
 package ru.job4j.lambda;
 
+
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.UnaryOperator;
 
-
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 public class DiapasonTest {
     @Test
     public void whenLinearFunctionThenLinearResults() {
-        //List<Double> result = function.diapason(5, 8, x -> 2 * x + 1);
+        Diapason function = new Diapason();
+        List<Double> result = function.diapason(5, 8, x -> 2 * x + 1);
         List<Double> expected = Arrays.asList(11D, 13D, 15D);
-        //assertThat(result, is(expected));
+        assertThat(result, is(expected));
     }
+
+   // x -> 2 * x + 1
+
 }
