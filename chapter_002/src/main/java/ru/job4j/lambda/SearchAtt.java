@@ -26,7 +26,6 @@ public class SearchAtt {
             public boolean test(Attachment attachment) {
                 boolean res = false;
                 if (attachment.getSize() > 100) {
-                    list.add(attachment);
                     res = true;
                 }
                 return res;
@@ -42,7 +41,6 @@ public class SearchAtt {
             public boolean test(Attachment attachment) {
                 boolean res = false;
                 if (attachment.getName().contains("bug")) {
-                    list.add(attachment);
                     res = true;
                 }
                 return res;
