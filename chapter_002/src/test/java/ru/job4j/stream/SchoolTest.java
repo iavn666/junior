@@ -17,7 +17,7 @@ public class SchoolTest {
         students.add(new Student("petya",60));
         students.add(new Student("semen",40));
         School one = new School();
-        List<Student> res = one.collect(students,student -> student.getScore() > 70);
+        List<Student> res = one.collect(students,student -> student.getScore() >= 70);
         List<Student> expected = new ArrayList<>();
         expected.add(new Student("ivan",80));
         assertThat(res, is(expected));
@@ -29,7 +29,7 @@ public class SchoolTest {
         students.add(new Student("petya",60));
         students.add(new Student("semen",40));
         School one = new School();
-        List<Student> res = one.collect(students,student -> (student.getScore() < 70) && (student.getScore() > 50));
+        List<Student> res = one.collect(students,student -> (student.getScore() < 70) && (student.getScore() >= 50));
         List<Student> expected = new ArrayList<>();
         expected.add(new Student("petya",60));
         assertThat(res, is(expected));
