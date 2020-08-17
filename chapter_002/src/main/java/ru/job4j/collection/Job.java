@@ -1,8 +1,6 @@
 package ru.job4j.collection;
 
-import java.util.Comparator;
-
-public class Job implements Comparator<Job> {
+public class Job implements Comparable<Job> {
     private String name;
 
     private int priority;
@@ -26,10 +24,7 @@ public class Job implements Comparator<Job> {
     }
 
     @Override
-    public int compare(Job o1, Job o2) {
-        return 0;
+    public int compareTo(Job another) {
+        return Integer.compare(priority, another.priority);
     }
-
-
-
 }

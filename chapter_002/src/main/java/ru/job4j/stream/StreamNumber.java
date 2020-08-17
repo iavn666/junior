@@ -25,5 +25,6 @@ public class StreamNumber {
         num.add(new StreamNumber(8));
         num.add(new StreamNumber(-7));
         System.out.println(num.stream().filter(streamNumber -> streamNumber.number > 0).collect(Collectors.toList()));
+
     }
 }

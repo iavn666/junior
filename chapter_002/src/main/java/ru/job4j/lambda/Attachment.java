@@ -1,11 +1,8 @@
 package ru.job4j.lambda;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
-public class Attachment {
+public class Attachment  {
     private String name;
     private int size;
 
@@ -31,5 +28,12 @@ public class Attachment {
     }
 
 
-    }
+
+
+    //Comparator<String> cmpText = (left, right) -> left.compareTo(right);
+
+    //Comparator<String> cmpDescSize = (left, right) -> left.length() - right.length(); тут поправил
+
+
+}
 

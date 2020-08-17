@@ -60,9 +60,9 @@ public class BankService {
             if ((!num.getRequisite().equals(srcRequisite)) || (num.getBalance() != b.getBalance())) {
                 rsl = false;
             } else {
-                Account c = findByRequisite(destPassport, dstRequisite);
-                amount = b.getBalance() + c.getBalance();
-                c.setBalance(amount);
+                //Account b = findByRequisite(destPassport, dstRequisite);
+                //amount = b.getBalance() + c.getBalance();
+               // c.setBalance(amount);
                 rsl = true;
 
             }
