@@ -43,8 +43,8 @@ public class Student {
     }
 
     public static void main(String[] args) {
-        Student nameone = new Student("ivan",3);
-        Student nametwo = new Student("petya",5);
+        Student nameone = new Student("ivan", 3);
+        Student nametwo = new Student("petya", 5);
         List<Student> res = new ArrayList<>();
         res.add(nameone);
         res.add(nametwo);
