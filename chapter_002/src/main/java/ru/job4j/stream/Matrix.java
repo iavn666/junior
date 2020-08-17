@@ -7,10 +7,10 @@ import java.util.stream.Collectors;
 
 public class Matrix {
 
-    public List<Integer> toList (int[][] array) {
+    public List<Integer> toList(int[][] array) {
         List list = new ArrayList();
         for (int[] i : array) {
-            for(int j : i){
+            for (int j : i) {
                 list.add(j);
             }
         }
