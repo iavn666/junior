@@ -4,20 +4,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class BankServices {
-    private Map<Users, List<Accounts>> users = new HashMap<>();
+    public static Map<Users, List<Accounts>> users = new HashMap<>();
 
     public void addUser(Users user) {
-        if (!users.containsKey(user))
-            users.put(user, new ArrayList<Accounts>());
+        users.keySet().stream()
+                .filter(x -> x.equals(user) != true)
+                .collect(Collectors.toList());
     }
 
     public void addAccount(String passport, Accounts account) {
         Users num = findByPassport(passport);
         List<Accounts> value = users.get(num);
-        if (!value.contains(account))
-            value.add(account);
+        value.stream().filter(accounts -> account.equals(num) != true)
+                .collect(Collectors.toList());
+
+
     }
 
     public Users findByPassport(String passport) {
