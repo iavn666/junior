@@ -48,7 +48,7 @@ public class Student {
         List<Student> res = new ArrayList<>();
         res.add(nameone);
         res.add(nametwo);
-        System.out.println(res.stream().collect(Collectors.toMap(x -> x.getScore(), x -> x)));
+        System.out.println(res.stream().collect(Collectors.toMap(x -> x.getSurname(), x -> x)));
     }
 
 }
