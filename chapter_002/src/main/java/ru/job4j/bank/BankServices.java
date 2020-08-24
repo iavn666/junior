@@ -7,12 +7,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class BankServices {
-    public static Map<Users, List<Accounts>> users = new HashMap<>();
+    private Map<Users, List<Accounts>> users = new HashMap<>();
 
     public void addUser(Users user) {
-        users.keySet().stream()
-                .filter(x -> x.equals(user) != true)
-                .collect(Collectors.toList());
+        users.keySet().contains(user);
     }
 
     public void addAccount(String passport, Accounts account) {
@@ -25,27 +23,28 @@ public class BankServices {
     }
 
     public Users findByPassport(String passport) {
-        Users a = null;
-        for (Users num : users.keySet()) {
-            if (num.getPassport().equals(passport)) {
-                a = num;
-            }
-        }
-        return a;
+        Users res = users.keySet()
+                .stream()
+                .filter(x -> x.getPassport()
+                .equals(passport))
+                .findFirst()
+                .get();
+        return res;
+
     }
 
     public Accounts findByRequisite(String passport, String requisite) {
-        Accounts res = null;
-        Users user = findByPassport(passport);
-        if (user != null) {
-            for (Accounts num : users.get(user)) {
-                if (num.getRequisite().equals(requisite)) {
-                    res = num;
-                }
+            Users user = findByPassport(passport);
+            users.values().stream().filter(x -> x.equals(requisite)).findFirst().get();
+      //  if (user != null) {
+      //      for (Accounts num : users.get(user)) {
+        //        if (num.getRequisite().equals(requisite)) {
+         //           res = num;
+        //        }
 
-            }
-        }
-        return res;
+         //   }
+      //  }
+        return null;
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,

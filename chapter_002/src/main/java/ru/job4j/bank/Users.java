@@ -1,5 +1,7 @@
 package ru.job4j.bank;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class Users {
@@ -35,6 +37,8 @@ public class Users {
         Users user = (Users) o;
         return Objects.equals(passport, user.passport);
     }
+
+
 
     @Override
     public int hashCode() {
